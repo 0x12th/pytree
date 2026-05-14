@@ -94,5 +94,6 @@ git push
 Install command:
 
 ```sh
-brew install 0x12th/pytree/pytree
+brew tap 0x12th/pytree
+brew install pytree
 ```
