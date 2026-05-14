@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master, main]
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      # Keep CI close to local development: rust-toolchain.toml pins channel/components.
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      # Cache Cargo registry, git checkouts, and target artifacts.
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt-check
+      - run: cargo typecheck
+      - run: cargo lint
+      - run: cargo qa
+      # Verify the exact crate payload that crates.io will receive.
+      - run: cargo package-check

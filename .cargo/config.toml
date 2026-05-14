@@ -1,0 +1,6 @@
+[alias]
+fmt-check = "fmt --all -- --check"
+lint = "clippy --all-targets --all-features -- -D warnings"
+package-check = "package --locked"
+typecheck = "check --all-targets --all-features"
+qa = "test --all-targets --all-features"
