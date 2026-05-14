@@ -60,11 +60,10 @@ git push origin v0.1.0
 
 The `Release` workflow creates the GitHub Release and uploads:
 
-- `pytree-aarch64-apple-darwin.tar.gz`
-- `pytree-x86_64-apple-darwin.tar.gz`
-- `pytree-x86_64-unknown-linux-gnu.tar.gz`
-- `pytree-x86_64-pc-windows-msvc.zip`
-- matching `.sha256` files
+- `pytree-v0.1.0-macos-arm64.tar.gz`
+- `pytree-v0.1.0-macos-x86_64.tar.gz`
+- `pytree-v0.1.0-linux-x86_64.tar.gz`
+- `pytree-v0.1.0-windows-x86_64.zip`
 
 It publishes to crates.io before creating the GitHub Release. If crates.io publish fails,
 the release assets are not uploaded.
@@ -75,8 +74,8 @@ After the GitHub Release has assets, compute checksums:
 
 ```sh
 VERSION=0.1.0
-curl -LO https://github.com/0x12th/pytree/releases/download/v$VERSION/pytree-aarch64-apple-darwin.tar.gz
-curl -LO https://github.com/0x12th/pytree/releases/download/v$VERSION/pytree-x86_64-apple-darwin.tar.gz
+curl -LO https://github.com/0x12th/pytree/releases/download/v$VERSION/pytree-v$VERSION-macos-arm64.tar.gz
+curl -LO https://github.com/0x12th/pytree/releases/download/v$VERSION/pytree-v$VERSION-macos-x86_64.tar.gz
 shasum -a 256 pytree-*.tar.gz
 ```
 

@@ -26,8 +26,8 @@ brew install pytree
 Binary:
 
 ```sh
-curl -LO https://github.com/0x12th/pytree/releases/download/v0.1.0/pytree-x86_64-unknown-linux-gnu.tar.gz
-tar -xzf pytree-x86_64-unknown-linux-gnu.tar.gz
+curl -LO https://github.com/0x12th/pytree/releases/download/v0.1.0/pytree-v0.1.0-linux-x86_64.tar.gz
+tar -xzf pytree-v0.1.0-linux-x86_64.tar.gz
 ./pytree --version
 ```
 

@@ -58,12 +58,16 @@ jobs:
         include:
           - target: aarch64-apple-darwin
             os: macos-latest
+            suffix: macos-arm64
           - target: x86_64-apple-darwin
             os: macos-latest
+            suffix: macos-x86_64
           - target: x86_64-unknown-linux-gnu
             os: ubuntu-latest
+            suffix: linux-x86_64
           - target: x86_64-pc-windows-msvc
             os: windows-latest
+            suffix: windows-x86_64
     runs-on: ${{ matrix.os }}
     permissions:
       contents: write
@@ -73,14 +77,13 @@ jobs:
         with:
           targets: ${{ matrix.target }}
       - uses: Swatinem/rust-cache@v2
-      # Builds release binary, archives it, uploads archive + sha256 checksum.
+      # Builds release binary and uploads a user-facing archive name.
       - uses: taiki-e/upload-rust-binary-action@v1
         with:
           bin: pytree
           target: ${{ matrix.target }}
-          archive: pytree-${{ matrix.target }}
+          archive: pytree-${{ github.ref_name }}-${{ matrix.suffix }}
           locked: true
-          checksum: sha256
           include: LICENSE,README.md
           tar: unix
           zip: windows

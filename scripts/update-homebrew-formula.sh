@@ -13,8 +13,8 @@ formula="$tap_repo/Formula/pytree.rb"
 tmpdir="$(mktemp -d)"
 trap 'rm -rf "$tmpdir"' EXIT
 
-arm_archive="pytree-aarch64-apple-darwin.tar.gz"
-intel_archive="pytree-x86_64-apple-darwin.tar.gz"
+arm_archive="pytree-v$version-macos-arm64.tar.gz"
+intel_archive="pytree-v$version-macos-x86_64.tar.gz"
 
 curl -fsSL -o "$tmpdir/$arm_archive" \
   "https://github.com/0x12th/pytree/releases/download/v$version/$arm_archive"
@@ -25,6 +25,8 @@ arm_sha="$(shasum -a 256 "$tmpdir/$arm_archive" | awk '{print $1}')"
 intel_sha="$(shasum -a 256 "$tmpdir/$intel_archive" | awk '{print $1}')"
 
 perl -0pi -e "s{/download/v[0-9]+\\.[0-9]+\\.[0-9]+/}{/download/v$version/}g" "$formula"
+perl -0pi -e "s{pytree-v[0-9]+\\.[0-9]+\\.[0-9]+-macos-arm64\\.tar\\.gz}{$arm_archive}g" "$formula"
+perl -0pi -e "s{pytree-v[0-9]+\\.[0-9]+\\.[0-9]+-macos-x86_64\\.tar\\.gz}{$intel_archive}g" "$formula"
 perl -0pi -e "s/sha256 \"[^\"]+\"/sha256 \"$arm_sha\"/s" "$formula"
 perl -0pi -e "s/sha256 \"$arm_sha\"(.*)sha256 \"[^\"]+\"/sha256 \"$arm_sha\"\$1sha256 \"$intel_sha\"/s" "$formula"
 
