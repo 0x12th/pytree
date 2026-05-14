@@ -1,18 +1,15 @@
 class Pytree < Formula
   desc "Clean tree view for Python projects"
   homepage "https://github.com/0x12th/pytree"
-  version "0.1.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/0x12th/pytree/releases/download/v#{version}/pytree-aarch64-apple-darwin.tar.gz"
-      # Replace after the GitHub Release uploads this archive.
-      sha256 "REPLACE_WITH_SHA256_FOR_AARCH64_APPLE_DARWIN"
+      url "https://github.com/0x12th/pytree/releases/download/v0.1.0/pytree-aarch64-apple-darwin.tar.gz"
+      sha256 "d51d84fa8da12c0c82f72c8c4e24da08ed4789e821922a7775c6e467c3975374"
     elsif Hardware::CPU.intel?
-      url "https://github.com/0x12th/pytree/releases/download/v#{version}/pytree-x86_64-apple-darwin.tar.gz"
-      # Replace after the GitHub Release uploads this archive.
-      sha256 "REPLACE_WITH_SHA256_FOR_X86_64_APPLE_DARWIN"
+      url "https://github.com/0x12th/pytree/releases/download/v0.1.0/pytree-x86_64-apple-darwin.tar.gz"
+      sha256 "90bd1a6446ed905e5f520abb54de0c5dbbe47cbb1b8d4d1cc02f6dbeaa81fbd9"
     end
   end
 
@@ -21,6 +18,6 @@ class Pytree < Formula
   end
 
   test do
-    system "#{bin}/pytree", "--version"
+    system bin/"pytree", "--version"
   end
 end
