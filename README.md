@@ -1,12 +1,16 @@
-# pytree
+<div align="center">
+  <img src="https://raw.githubusercontent.com/0x12th/pytree/refs/heads/master/docs/public/pytree_logo.png" alt="pytree">
 
-[![Rust](https://img.shields.io/badge/Rust-2024-orange.svg)](https://www.rust-lang.org/)
-[![Crates.io](https://img.shields.io/crates/v/pytree.svg)](https://crates.io/crates/pytree)
-[![CI](https://github.com/0x12th/pytree/actions/workflows/ci.yml/badge.svg)](https://github.com/0x12th/pytree/actions/workflows/ci.yml)
-[![Downloads](https://img.shields.io/crates/d/pytree.svg)](https://crates.io/crates/pytree)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  # pytree
 
-Clean `tree`-like output for Python projects.
+  ### Clean `tree`-like output for Python projects.
+
+  [![Rust](https://img.shields.io/badge/Rust-2024-orange.svg)](https://www.rust-lang.org/)
+  [![Crates.io](https://img.shields.io/crates/v/pytree.svg)](https://crates.io/crates/pytree)
+  [![CI](https://github.com/0x12th/pytree/actions/workflows/ci.yml/badge.svg)](https://github.com/0x12th/pytree/actions/workflows/ci.yml)
+  [![Downloads](https://img.shields.io/crates/d/pytree.svg)](https://crates.io/crates/pytree)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+</div>
 
 ## Install
 
